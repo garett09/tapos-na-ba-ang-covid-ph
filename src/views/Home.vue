@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <h1 class="h1-heading">Tapos na ba ang COVID19?</h1>
-    <h2 class="h2-heading">Hindi 😷</h2>
+    <h2 class="h2-heading">Hindi. 😷</h2>
   </b-container>
 </template>
 
