@@ -44,7 +44,7 @@ export default new Vuex.Store({
     retrieveCovidData(context) {
       return new Promise((resolve, reject) => {
         Api()
-          .get("/countries/NL?yesterday=true&twoDaysAgo=true")
+          .get("/countries/PH?yesterday=true&twoDaysAgo=true")
           .then(response => {
             const covidData = response.data;
             context.commit("processCovidData", covidData);
