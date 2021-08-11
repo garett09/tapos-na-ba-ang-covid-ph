@@ -1,4 +1,4 @@
-# is-covid-over-in-the-philippines
+# Tapos na ba ang COVID-19 sa Pilipinas?
 A web app which keeps track of the current COVID-19 situation in The Philppines and gives a a very clear answer to the question:
 
 `Tapos na ba ang COVID19?`
