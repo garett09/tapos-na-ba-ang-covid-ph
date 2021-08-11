@@ -21,8 +21,8 @@ The front end is made with Vue.js and Bootstrap for the styling. The backend is 
 It's better to practice than do nothing about the situation in your country.
 
 ## To-Do's
--Do well in school
--Finish school
+- Do well in school
+- Finish school
 
 ## Project setup
 ```
