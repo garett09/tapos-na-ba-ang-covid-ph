@@ -33,7 +33,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="statistics-div">
-            <h4 class="heading-h4">Bakit mo nilikha ang website na ito?</h4>
+            <h4 class="heading-h4">Bakit mo ginawa ang website na ito?</h4>
             <span class="number-span mr-3">
               Mas mabuti na ang tumulong ka kaysa wala kang magawa. Ginawa ko
               rin ito upang matuto ng bagong programming language.
