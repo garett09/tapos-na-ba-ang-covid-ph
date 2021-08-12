@@ -21,31 +21,31 @@
       <b-row class="statistics-row">
         <b-col cols="12" lg="6">
           <div class="statistics-div">
-            <h4 class="heading-h4">Mga Impeksyon</h4>
-            <span class="number-span mr-3">Kabuuan {{ todayCases }}</span>
-            <span class="number-span">Sa araw na ito {{ cases }}</span>
+            <h4 class="heading-h4">Cases</h4>
+            <span class="number-span mr-3">For today: {{ todayCases }}</span>
+            <span class="number-span">Total: {{ cases }}</span>
           </div>
         </b-col>
         <b-col cols="12" lg="6">
           <div class="statistics-div">
-            <h4 class="heading-h4">Nasawi</h4>
-            <span class="number-span mr-3">Kabuuan {{ todayDeaths }}</span>
-            <span class="number-span">Sa araw na ito {{ cases }}</span>
+            <h4 class="heading-h4">Deaths</h4>
+            <span class="number-span mr-3">For today: {{ todayDeaths }}</span>
+            <span class="number-span">Total: {{ cases }}</span>
           </div>
         </b-col>
       </b-row>
       <b-row class="statistics-row">
         <b-col cols="12" lg="6">
           <div class="statistics-div">
-            <h4 class="heading-h4">Impeksyon sa bawat 1 milyon</h4>
-            <span class="number-span">Total {{ casecasesPerOneMillions }}</span>
+            <h4 class="heading-h4">Cases per 1 million people</h4>
+            <span class="number-span">Total: {{ casecasesPerOneMillions }}</span>
           </div>
         </b-col>
         <b-col cols="12" lg="6">
           <div class="statistics-div">
-            <h4 class="heading-h4">Nasawi sa bawat 1 milyon</h4>
+            <h4 class="heading-h4">Deaths per 1 million people</h4>
             <span class="number-span mr-3"
-              >Kabuuan {{ deathsPerOneMillion }}</span
+              >Total: {{ deathsPerOneMillion }}</span
             >
           </div>
         </b-col>
@@ -53,13 +53,13 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="highlight-statistics-div">
-            <h4 class="heading-h4">Bilang ng tests</h4>
-            <span class="number-span">Kabuuan {{ castestses }}</span>
+            <h4 class="heading-h4">Number of individuals tested</h4>
+            <span class="number-span">Total: {{ castestses }}</span>
           </div>
         </b-col>
       </b-row>
     </section>
-    <section>
+    <section class="page-section">
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
