@@ -14,9 +14,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3">
-              Kamusta na tayo?
-            </h3>
+            <h3 class="heading-h3">Kamusta na tayo?</h3>
           </div>
         </b-col>
       </b-row>
@@ -46,7 +44,9 @@
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4">Nasawi sa bawat 1 milyon</h4>
-            <span class="number-span mr-3">Kabuuan {{ deathsPerOneMillion }}</span>
+            <span class="number-span mr-3"
+              >Kabuuan {{ deathsPerOneMillion }}</span
+            >
           </div>
         </b-col>
       </b-row>
@@ -63,16 +63,18 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3">
-              Ano ang itsura ng pag-unlad?
-            </h3>
+            <h3 class="heading-h3">Ano ang itsura ng pag-unlad?</h3>
           </div>
         </b-col>
       </b-row>
       <b-row class="statistics-row">
         <b-col>
           <div>
-            <LineChart v-if="loaded" :chartdata="chartdata" :options="options"></LineChart>
+            <LineChart
+              v-if="loaded"
+              :chartdata="chartdata"
+              :options="options"
+            ></LineChart>
           </div>
         </b-col>
       </b-row>
@@ -94,14 +96,14 @@ export default {
       this.casecasesPerOneMillions = this.$store.getters.casesPerOneMillion;
       this.deathsPerOneMillion = this.$store.getters.deathsPerOneMillion;
       this.castestses = this.$store.getters.tests;
-    })
+    });
     this.$store.dispatch("retrieveCovidChartData").then(() => {
       this.chartdata = this.$store.getters.chartData;
       this.loaded = true;
     });
   },
   components: {
-    LineChart
+    LineChart,
   },
   data() {
     return {
@@ -115,7 +117,7 @@ export default {
       castestses: 0,
       chartdata: {},
       options: {},
-    }
-  }
+    };
+  },
 };
 </script>

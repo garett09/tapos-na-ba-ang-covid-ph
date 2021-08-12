@@ -65,7 +65,7 @@ export default new Vuex.Store({
             reject(error);
           });
       });
-    },
+    }
   },
   getters: {
     cases: state => {
