@@ -15,12 +15,14 @@ export default new Vuex.Store({
     tests: 0,
     chartDataCases: {},
     chartDeathsCases: {},
-    chartRecoveredCases: {}
+    chartRecoveredCases: {},
+    totalVaccinated: 0,
+    dailyVaccinated: 0
   },
   mutations: {
     processCovidData(state, covidData) {
       state.cases = covidData["cases"];
-      state.todayCases = covidData["cases"];
+      state.todayCases = covidData["todayCases"];
       state.deaths = covidData["deaths"];
       state.todayDeaths = covidData["todayDeaths"];
       state.casesPerOneMillion = covidData["casesPerOneMillion"];
@@ -31,6 +33,9 @@ export default new Vuex.Store({
       state.chartDataCases = covidChartData["cases"];
       state.chartDeathsCases = covidChartData["deaths"];
       state.chartRecoveredCases = covidChartData["recovered"];
+    },
+    processCovidVaccineData(state, covidVaccineData) {
+      state.totalVaccinated= covidVaccineData["timeline"];
     }
   },
   actions: {
@@ -66,6 +71,22 @@ export default new Vuex.Store({
           });
       });
     },
+    retrieveCovidVaccineData(context) {
+      return new Promise((resolve, reject) => {
+        Api()
+          .get("/vaccine/coverage/countries/Philippines?lastdays=1&fullData=true")
+          .then(response => {
+            const covidVaccineData = response.data["timeline"];
+            context.commit("processCovidVaccineData", covidVaccineData);
+            resolve(response);
+
+          })
+          .catch(error => {
+            context.commit("apiError", error);
+            reject(error);
+          });
+      });
+    },
   },
   getters: {
     cases: state => {
@@ -88,6 +109,12 @@ export default new Vuex.Store({
     },
     tests: state => {
       return state.tests;
+    },
+    totalVaccinated: state => {
+      return state.totalVaccinated;
+    },
+    dailyVaccinated: state => {
+      return state.dailyVaccinated;
     },
 
     chartData: state => {
