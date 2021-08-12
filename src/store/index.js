@@ -20,7 +20,7 @@ export default new Vuex.Store({
   mutations: {
     processCovidData(state, covidData) {
       state.cases = covidData["cases"];
-      state.todayCases = covidData["cases"];
+      state.todayCases = covidData["todayCases"];
       state.deaths = covidData["deaths"];
       state.todayDeaths = covidData["todayDeaths"];
       state.casesPerOneMillion = covidData["casesPerOneMillion"];
@@ -37,7 +37,7 @@ export default new Vuex.Store({
     retrieveCovidData(context) {
       return new Promise((resolve, reject) => {
         Api()
-          .get("/countries/PH?yesterday=true&twoDaysAgo=true")
+          .get("/countries/Philippines")
           .then(response => {
             const covidData = response.data;
             context.commit("processCovidData", covidData);
@@ -53,7 +53,7 @@ export default new Vuex.Store({
     retrieveCovidChartData(context) {
       return new Promise((resolve, reject) => {
         Api()
-          .get("/historical/PH?lastdays=30")
+          .get("/historical/PH?lastdays=60")
           .then(response => {
             const covidChartData = response.data["timeline"];
             context.commit("processCovidChartData", covidChartData);
