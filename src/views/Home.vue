@@ -4,7 +4,7 @@
       <b-row>
         <b-col>
           <div class="heading-div">
-            <h1 class="heading-h1">Tapos na ba ang COVID19?</h1>
+            <h1 class="heading-h1">Tapos na ba?</h1>
             <h2 class="heading-h2">Hindi. <span>😷</span></h2>
           </div>
         </b-col>
