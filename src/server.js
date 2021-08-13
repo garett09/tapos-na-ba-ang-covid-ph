@@ -5,7 +5,7 @@ const compression = require("compression");
 
 const app = express();
 
-app.use(compression())
+app.use(compression());
 
 const staticFileMiddleware = express.static(path.join(__dirname + "/dist"));
 
