@@ -14,50 +14,58 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3">Kamusta na tayo?</h3>
+            <h3 class="heading-h3">Kamusta na tayo? 🤔</h3>
           </div>
         </b-col>
       </b-row>
       <b-row class="statistics-row">
         <b-col cols="12" lg="6">
-          <div class="statistics-div">
-            <h4 class="heading-h4">Cases</h4>
-            <span class="number-span mr-3">For today: {{ todayCases }}</span>
-            <span class="number-span">Total: {{ cases }}</span>
-          </div>
+          <StatisticsBlockDouble
+            Title="Infections"
+            :Total="cases"
+            :Today="todayCases"
+          ></StatisticsBlockDouble>
         </b-col>
         <b-col cols="12" lg="6">
-          <div class="statistics-div">
-            <h4 class="heading-h4">Deaths</h4>
-            <span class="number-span mr-3">For today: {{ todayDeaths }}</span>
-            <span class="number-span">Total: {{ cases }}</span>
-          </div>
+          <StatisticsBlockDouble
+            Title="Deaths"
+            :Total="deaths"
+            :Today="todayDeaths"
+          ></StatisticsBlockDouble>
         </b-col>
       </b-row>
       <b-row class="statistics-row">
         <b-col cols="12" lg="6">
-          <div class="statistics-div">
-            <h4 class="heading-h4">Cases per 1 million people</h4>
-            <span class="number-span"
-              >Total: {{ casecasesPerOneMillions }}</span
-            >
-          </div>
+          <StatisticsBlockSingle
+            ClassProp="statistics-div"
+            Title="Infections Per 1 Million"
+            :Total="casecasesPerOneMillions"
+          ></StatisticsBlockSingle>
         </b-col>
         <b-col cols="12" lg="6">
-          <div class="statistics-div">
-            <h4 class="heading-h4">Deaths per 1 million people</h4>
-            <span class="number-span mr-3"
-              >Total: {{ deathsPerOneMillion }}</span
-            >
-          </div>
+          <StatisticsBlockSingle
+            ClassProp="statistics-div"
+            Title="Deaths Per 1 Million"
+            :Total="deathsPerOneMillion"
+          ></StatisticsBlockSingle>
         </b-col>
       </b-row>
       <b-row class="statistics-row">
         <b-col>
-          <div class="highlight-statistics-div">
-            <h4 class="heading-h4">Number of individuals tested</h4>
-            <span class="number-span">Total: {{ castestses }}</span>
-          </div>
+          <StatisticsBlockSingle
+            ClassProp="highlight-statistics-div"
+            Title="Total number of Tested individuals"
+            :Total="castestses"
+          ></StatisticsBlockSingle>
+        </b-col>
+      </b-row>
+      <b-row class="statistics-row">
+        <b-col>
+          <StatisticsBlockSingle
+            ClassProp="highlight-statistics-div"
+            Title="Total number of Vaccinated individuals"
+            :Total="vaccineTotal"
+          ></StatisticsBlockSingle>
         </b-col>
       </b-row>
     </section>
@@ -85,7 +93,6 @@
 </template>
 
 <script>
-/* eslint-disable vue/no-unused-components */
 import LineChart from "@/components/Chart.vue";
 import StatisticsBlockDouble from "@/components/StatisticsBlockDouble.vue";
 import StatisticsBlockSingle from "@/components/StatisticsBlockSingle.vue";
