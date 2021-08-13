@@ -105,6 +105,10 @@ body {
   }
 }
 
+.heading-h5 {
+  font-style:italic;
+}
+
 .number-span {
   font-size: 1.25rem;
 }
@@ -124,6 +128,31 @@ body {
 
 @media (min-width: 992px) {
   .statistics-div {
+    margin: 0rem;
+    padding: 1rem;
+    background-color: #f3f7ff;
+    border-radius: 1rem;
+  }
+}
+
+.container{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.statistics-div1 {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f3f7ff;
+  border-radius: 1rem;
+  text-align: left;
+  display:flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+  .statistics-div1 {
     margin: 0rem;
     padding: 1rem;
     background-color: #f3f7ff;

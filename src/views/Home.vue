@@ -7,7 +7,7 @@
             <h1 class="heading-h1">Tapos na ba?</h1>
             <h2 class="heading-h2">Hindi. <span>😷</span></h2>
             &nbsp;
-            <h5 class="heading-h5">The data updates every 10 minutes. </h5>
+            <h5 class="heading-h5">Updated: {{datetime}}</h5>
           </div>
         </b-col>
       </b-row>
@@ -22,56 +22,72 @@
       </b-row>
       <b-row class="statistics-row">
         <b-col cols="12" lg="6">
-          <StatisticsBlockDouble
-            Title="Cases"
-            :Total="cases"
-            :Today="todayCases"
-          ></StatisticsBlockDouble>
+          <div class="statistics-div">
+            <h4 class="heading-h4 font-weight-bold" style="color:#4169e1;">Confirmed</h4>
+            <span class="number-span mr-4" style="font-weight:700">Today: {{ todayCases.toLocaleString() }}</span>
+            <br>
+            <span class="number-span" style="font-weight:500">Total: {{ cases.toLocaleString() }}</span>
+          </div>
         </b-col>
         <b-col cols="12" lg="6">
-          <StatisticsBlockDouble
-            Title="Deaths"
-            :Total="deaths"
-            :Today="todayDeaths"
-          ></StatisticsBlockDouble>
+            <div class="statistics-div">
+            <h4 class="heading-h4 font-weight-bold " style="color:#ff0038;">Deceased</h4>
+            <span class="number-span mr-4" style="font-weight:700">Today: {{ todayDeaths.toLocaleString() }}</span>
+            <br>
+            <span class="number-span" style="font-weight:500">Total: {{ deaths.toLocaleString() }}</span>
+          </div>
         </b-col>
       </b-row>
       <b-row class="statistics-row">
         <b-col cols="12" lg="6">
-          <StatisticsBlockSingle
-            ClassProp="statistics-div"
-            Title="Infections Per 1 Million"
-            :Total="casecasesPerOneMillions"
-          ></StatisticsBlockSingle>
+          <div class="statistics-div">
+            <h4 class="heading-h4 font-weight-bold" style="color:#1ca9c9">Active</h4>
+            <span class="number-span" style="font-weight:500">Total: {{ activeCases.toLocaleString() }}</span>
+          </div>
         </b-col>
         <b-col cols="12" lg="6">
-          <StatisticsBlockSingle
-            ClassProp="statistics-div"
-            Title="Deaths Per 1 Million"
-            :Total="deathsPerOneMillion"
-          ></StatisticsBlockSingle>
+         <div class="statistics-div">
+            <h4 class="heading-h4 font-weight-bold" style="color:#004225">Critical</h4>
+            <span class="number-span" style="font-weight:500">Total: {{ critical.toLocaleString() }}</span>
+          </div>
         </b-col>
       </b-row>
       <b-row class="statistics-row">
         <b-col>
           <div class="highlight-statistics-div">
-            <h4 class="heading-h4">Magandang balita!</h4>
+            <h3 class="heading-h3">Magandang balita!</h3>
             <b-row class="my-5">
               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
                 <StatisticsBlockSingle
                   ClassProp="highlight-statistics-inner-div"
-                  Title="Number Tested 🔬"
-                  :Total="castestses"
+                  Title="Recovered today 💪🏾"
+                  :Total="todayRecovered"
                 ></StatisticsBlockSingle>
               </b-col>
               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
                 <StatisticsBlockSingle
                   ClassProp="highlight-statistics-inner-div"
-                  Title="Number Vaccinated 💉"
-                  :Total="vaccineTotal"
+                  Title="Recovered 💪🏿"
+                  :Total="recovered"
                 ></StatisticsBlockSingle>
               </b-col>
             </b-row>
+             <b-row class="my-5">
+              <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
+              <StatisticsBlockSingle
+                ClassProp="highlight-statistics-inner-div"
+                Title="Vaccinated individuals 💉"
+                :Total="vaccineTotal"
+              ></StatisticsBlockSingle>
+              </b-col>
+            <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
+              <StatisticsBlockSingle
+                ClassProp="highlight-statistics-inner-div"
+                Title="Cumulative Samples Tested 🔬"
+                :Total="castestses"
+              ></StatisticsBlockSingle>
+            </b-col>
+             </b-row>
             <span class="number-span"
               >Palaging magpa-test kung mayroon kang mga sintomas! Para sa
               karagdagang impormasyon, bisitahin ang website ng:
@@ -104,9 +120,11 @@
       </b-row>
     </section>
   </b-container>
+  
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
 import LineChart from "@/components/Chart.vue";
 import StatisticsBlockDouble from "@/components/StatisticsBlockDouble.vue";
 import StatisticsBlockSingle from "@/components/StatisticsBlockSingle.vue";
@@ -124,8 +142,13 @@ export default {
     this.castestses = this.$store.getters.tests;
     this.chartdata = this.$store.getters.chartData;
     this.vaccineTotal = this.$store.getters.covidVaccineDataTotal;
+    this.recovered = this.$store.getters.recovered;
+    this.todayRecovered = this.$store.getters.todayRecovered;
+    this.critical = this.$store.getters.critical;
+    this.activeCases = this.$store.getters.activeCases;
     this.loaded = true;
   },
+
   components: {
     StatisticsBlockDouble,
     StatisticsBlockSingle,
@@ -144,6 +167,12 @@ export default {
       vaccineTotal: 0,
       chartdata: {},
       options: {},
+      date: '',
+      time: '',
+      year: '',
+      timestamp: '',
+      fulldatetime: '',
+      datetime: ''
     };
   },
   methods: {
@@ -152,6 +181,29 @@ export default {
       await this.$store.dispatch("retrieveCovidChartData");
       await this.$store.dispatch("retrieveCovidVaccineData");
     },
-  },
+      printDate: function () {
+            return new Date().toLocaleDateString();
+          },
+          printTime: function () {
+            return new Date().toLocaleTimeString();
+          },
+          printYear: function () {
+            return new Date().getFullYear();
+          },          
+          printTimestamp: function () {
+            return Date.now();
+          },
+          printFullDate: function(){
+            return new Date();
+          }
+        },
+        mounted: function () {
+          this.date = this.printDate();
+          this.time = this.printTime();
+          this.timestamp = this.printTimestamp();
+          this.year = this.printYear();
+          this.fulldatetime = this.printFullDate();
+          this.datetime = this.printDate() + '  ' + this.printTime();
+        },
 };
 </script>

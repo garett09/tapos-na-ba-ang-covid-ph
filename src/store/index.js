@@ -2,14 +2,21 @@ import Vue from "vue";
 import Vuex from "vuex";
 import Api from "@/api";
 
+
 Vue.use(Vuex);
 
+
 export default new Vuex.Store({
+  
   state: {
     cases: 0,
     todayCases: 0,
     deaths: 0,
     todayDeaths: 0,
+    recovered: 0,
+    critical: 0,
+    todayRecovered: 0,
+    activeCases: 0,
     casesPerOneMillion: 0,
     deathsPerOneMillion: 0,
     tests: 0,
@@ -27,6 +34,10 @@ export default new Vuex.Store({
       state.casesPerOneMillion = covidData["casesPerOneMillion"];
       state.deathsPerOneMillion = covidData["deathsPerOneMillion"];
       state.tests = covidData["tests"];
+      state.activeCases = covidData["active"]
+      state.recovered = covidData["recovered"]
+      state.todayRecovered = covidData["todayRecovered"]
+      state.critical = covidData["critical"]
     },
     processCovidChartData(state, covidChartData) {
       state.chartDataCases = covidChartData["cases"];
@@ -108,6 +119,18 @@ export default new Vuex.Store({
     },
     tests: state => {
       return state.tests;
+    },
+    activeCases: state => {
+      return state.activeCases;
+    },
+    recovered: state => {
+      return state.recovered;
+    },
+    critical: state => {
+      return state.critical;
+    },
+    todayRecovered: state => {
+      return state.todayRecovered;
     },
 
     chartData: state => {
