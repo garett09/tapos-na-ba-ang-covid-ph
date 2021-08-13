@@ -7,7 +7,7 @@
             <h1 class="heading-h1">Tapos na ba?</h1>
             <h2 class="heading-h2">Hindi. <span>😷</span></h2>
             &nbsp;
-            <h5 class="heading-h5">The Data updates everyday </h5>
+            <h5 class="heading-h5">The data updates every 10 minutes. </h5>
           </div>
         </b-col>
       </b-row>
