@@ -130,7 +130,7 @@ export default new Vuex.Store({
             data: Object.values(state.chartRecoveredCases)
           },
           {
-            label: "Vaccines delivered",
+            label: "Vaccines administered",
             backgroundColor: "#eebb17",
             data: Object.values(state.covidVaccineData)
           }
