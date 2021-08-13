@@ -6,6 +6,8 @@
           <div class="heading-div">
             <h1 class="heading-h1">Tapos na ba?</h1>
             <h2 class="heading-h2">Hindi. <span>😷</span></h2>
+            &nbsp;
+            <h5 class="heading-h5">The Data updates everyday </h5>
           </div>
         </b-col>
       </b-row>
@@ -71,8 +73,8 @@
               </b-col>
             </b-row>
             <span class="number-span"
-              >Palaging magpa-test kung mayroon kang mga sintomas! Para sa karagdagang impormasyon, bisitahin
-              ang website ng:
+              >Palaging magpa-test kung mayroon kang mga sintomas! Para sa
+              karagdagang impormasyon, bisitahin ang website ng:
               <b-link href="https://doh.gov.ph/" target="_blank"
                 >DOH</b-link
               ></span
