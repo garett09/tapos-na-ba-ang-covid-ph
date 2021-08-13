@@ -14,6 +14,7 @@ const routes = [
     name: "About",
     component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
+  
   // Error routes
   {
     path: "/404",
