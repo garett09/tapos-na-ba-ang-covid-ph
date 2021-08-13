@@ -13,7 +13,7 @@
           <div class="statistics-div">
             <h4 class="heading-h4">Saan ko kinuha ang mga data?</h4>
             <span class="number-span mr-3">
-              Ang data na ipinapakita ay nagmula sa
+              Ang lahat ng data na ipinapakita ay nagmula sa
               <b-link
                 href="https://www.worldometers.info/coronavirus/"
                 target="_blank"
@@ -22,7 +22,7 @@
               at
               <b-link href="https://www.jhu.edu/" target="_blank"
                 >Johns Hopkins University</b-link
-              >. Parehong nakolekta sa pamamagitan ng
+              >. Parehong kinolekta sa pamamagitan ng
               <b-link href="https://github.com/disease-sh/API" target="_blank"
                 >disease.sh API</b-link
               >
