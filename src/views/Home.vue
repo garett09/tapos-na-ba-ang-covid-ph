@@ -76,7 +76,7 @@
               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
               <StatisticsBlockSingle
                 ClassProp="highlight-statistics-inner-div"
-                Title="Vaccinated individuals 💉"
+                Title="Vaccines administered 💉"
                 :Total="vaccineTotal"
               ></StatisticsBlockSingle>
               </b-col>
