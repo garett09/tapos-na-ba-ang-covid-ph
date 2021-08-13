@@ -61,12 +61,11 @@ export default new Vuex.Store({
             resolve(response);
           })
           .catch(error => {
-            context.commit("apiError", error);
+            console.log(error);
             reject(error);
           });
       });
-    }
-  },
+    },
   getters: {
     cases: state => {
       return state.cases;
@@ -91,7 +90,7 @@ export default new Vuex.Store({
     },
 
     chartData: state => {
-      const chartData =  {
+      const chartData = {
         labels: Object.keys(state.chartDataCases),
         datasets: [
           {
