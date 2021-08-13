@@ -18,8 +18,7 @@
     "vue-chartjs": "^3.5.1",
     "vue-gtm": "^3.0.0-vue2",
     "vue-router": "^3.5.2",
-    "vuex": "^3.6.2",
-    "webpack-bundle-analyzer": "^3.9.0"
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
