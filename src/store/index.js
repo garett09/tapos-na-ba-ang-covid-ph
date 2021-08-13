@@ -41,7 +41,7 @@ export default new Vuex.Store({
     retrieveCovidData(context) {
       return new Promise((resolve, reject) => {
         Api()
-          .get("/countries/Philippines")
+          .get("countries/ph?strict=true")
           .then(response => {
             const covidData = response.data;
             context.commit("processCovidData", covidData);
@@ -73,7 +73,7 @@ export default new Vuex.Store({
     retrieveCovidVaccineData(context) {
       return new Promise((resolve, reject) => {
         Api()
-          .get("/vaccine/coverage/countries/PH?lastdays=30")
+          .get("/vaccine/coverage/countries/ph?lastdays=30")
           .then(response => {
             const covidVaccineData = response.data["timeline"];
             context.commit("processCovidVacinneData", covidVaccineData);
