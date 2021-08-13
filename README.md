@@ -8,7 +8,7 @@ Or for the non-Filipino readers:
 `Is COVID19 over?`
 
 ## Where can I find the app?
-Work in progress. Will be available very soon.
+You can find the app here: [https://taposnaba.software/](https://taposnaba.software/)
 
 ## Where does the data come from?
 The data for the number cards comes from [Worldometers](https://www.worldometers.info/coronavirus/) and the data for the chart come from
