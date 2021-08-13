@@ -19,7 +19,7 @@ Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 
 Vue.use(VueGtm, {
-  id: 'GTM-TPT29ND'
+  id: "GTM-WRD8L9Q"
 });
 
 new Vue({
