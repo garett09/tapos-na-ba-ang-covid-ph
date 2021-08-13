@@ -87,11 +87,25 @@ body {
 
 .heading-h3 {
   font-size: 2rem;
+  
 }
 
 @media (min-width: 576px) {
   .heading-h3 {
     font-size: 3rem;
+  }
+}
+
+.heading-h31 {
+  font-size: 2rem;
+  margin-bottom:5px;
+  
+}
+
+@media (min-width: 576px) {
+  .heading-h31 {
+    font-size: 3rem;
+    margin-bottom:50px;
   }
 }
 
@@ -116,6 +130,18 @@ body {
 @media (min-width: 576px) {
   .number-span {
     font-size: 2rem;
+  }
+}
+
+.number-span1 {
+  font-size: 1.25rem;
+  
+}
+
+@media (min-width: 576px) {
+  .number-span1 {
+    font-size: 2rem;
+    text-align: justify;
   }
 }
 

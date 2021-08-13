@@ -16,7 +16,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3">Kamusta na tayo? 🤔</h3>
+            <h3 class="heading-h3 mb-4">Kamusta na tayo? 🤔</h3>
           </div>
         </b-col>
       </b-row>
@@ -55,8 +55,8 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="highlight-statistics-div">
-            <h3 class="heading-h3">Magandang balita!</h3>
-            <b-row class="my-5">
+            <h3 class="heading-h31">Magandang balita!</h3>
+            <b-row class="statistics-row">
               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
                 <StatisticsBlockSingle
                   ClassProp="highlight-statistics-inner-div"
@@ -72,7 +72,7 @@
                 ></StatisticsBlockSingle>
               </b-col>
             </b-row>
-             <b-row class="my-5">
+             <b-row class="statistics-row">
               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
               <StatisticsBlockSingle
                 ClassProp="highlight-statistics-inner-div"
@@ -88,9 +88,8 @@
               ></StatisticsBlockSingle>
             </b-col>
              </b-row>
-            <span class="number-span"
-              >Palaging magpa-test kung mayroon kang mga sintomas! Para sa
-              karagdagang impormasyon, bisitahin ang website ng:
+            <span class="number-span1"
+              >Palaging magpa-test kung mayroon kang mga sintomas! Para sa karagdagang impormasyon, bisitahin ang website ng:
               <b-link href="https://doh.gov.ph/" target="_blank"
                 >DOH</b-link
               ></span
