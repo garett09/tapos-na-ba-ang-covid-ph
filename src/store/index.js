@@ -115,7 +115,7 @@ export default new Vuex.Store({
         labels: Object.keys(state.chartDataCases),
         datasets: [
           {
-            label: 'Infections',
+            label: 'Cases',
             backgroundColor: '#f3f7ff',
             data: Object.values(state.chartDataCases)
           },

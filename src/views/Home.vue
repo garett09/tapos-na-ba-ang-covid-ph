@@ -23,7 +23,7 @@
       <b-row class="statistics-row">
         <b-col cols="12" lg="6">
           <StatisticsBlockDouble
-            Title="Infections"
+            Title="Cases"
             :Total="cases"
             :Today="todayCases"
           ></StatisticsBlockDouble>
