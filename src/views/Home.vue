@@ -38,7 +38,9 @@
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4">Cases per 1 million people</h4>
-            <span class="number-span">Total: {{ casecasesPerOneMillions }}</span>
+            <span class="number-span"
+              >Total: {{ casecasesPerOneMillions }}</span
+            >
           </div>
         </b-col>
         <b-col cols="12" lg="6">
@@ -83,26 +85,29 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
 import LineChart from "@/components/Chart.vue";
+import StatisticsBlockDouble from "@/components/StatisticsBlockDouble.vue";
+import StatisticsBlockSingle from "@/components/StatisticsBlockSingle.vue";
 
 export default {
   name: "Home",
-  created() {
-    this.$store.dispatch("retrieveCovidData").then(() => {
-      this.cases = this.$store.getters.cases;
-      this.todayCases = this.$store.getters.todayCases;
-      this.deaths = this.$store.getters.deaths;
-      this.todayDeaths = this.$store.getters.todayDeaths;
-      this.casecasesPerOneMillions = this.$store.getters.casesPerOneMillion;
-      this.deathsPerOneMillion = this.$store.getters.deathsPerOneMillion;
-      this.castestses = this.$store.getters.tests;
-    });
-    this.$store.dispatch("retrieveCovidChartData").then(() => {
-      this.chartdata = this.$store.getters.chartData;
-      this.loaded = true;
-    });
+  async created() {
+    await this.retrieveData();
+    this.cases = this.$store.getters.cases;
+    this.todayCases = this.$store.getters.todayCases;
+    this.deaths = this.$store.getters.deaths;
+    this.todayDeaths = this.$store.getters.todayDeaths;
+    this.casecasesPerOneMillions = this.$store.getters.casesPerOneMillion;
+    this.deathsPerOneMillion = this.$store.getters.deathsPerOneMillion;
+    this.castestses = this.$store.getters.tests;
+    this.chartdata = this.$store.getters.chartData;
+    this.vaccineTotal = this.$store.getters.covidVaccineDataTotal;
+    this.loaded = true;
   },
   components: {
+    StatisticsBlockDouble,
+    StatisticsBlockSingle,
     LineChart,
   },
   data() {
@@ -115,9 +120,17 @@ export default {
       casecasesPerOneMillions: 0,
       deathsPerOneMillion: 0,
       castestses: 0,
+      vaccineTotal: 0,
       chartdata: {},
       options: {},
     };
+  },
+  methods: {
+    async retrieveData() {
+      await this.$store.dispatch("retrieveCovidData");
+      await this.$store.dispatch("retrieveCovidChartData");
+      await this.$store.dispatch("retrieveCovidVaccineData");
+    },
   },
 };
 </script>
