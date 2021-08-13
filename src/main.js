@@ -5,7 +5,7 @@ import store from "./store";
 
 // Bootstrap-vue package
 // b-row / b-col / b-link / b-container / b-navbar / b-navbar-toggle / b-collapse / b-navbar-nav / b-nav-item
-import { BRow, BCol, BLink, BContainer, BNavbar, BNavbarToggle, BCollapse, BNavbarNav, BNavItem } from "bootstrap-vue"; 
+import { BRow, BCol, BLink, BContainer, BNavbar, BNavbarToggle, BCollapse, BNavbarNav, BNavItem } from "bootstrap-vue";
 
 // Vue GTM package to integrate Google Tag Manager
 import VueGtm from 'vue-gtm';
