@@ -220,7 +220,7 @@ body {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition-duration: 0.3s;
+  transition-duration: 0.8s;
   transition-property: height, opacity;
   transition-timing-function: ease;
   overflow: hidden;
