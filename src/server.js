@@ -1,8 +1,11 @@
 const express = require("express");
 const path = require("path");
 const history = require("connect-history-api-fallback");
+const compression = require("compression");
 
 const app = express();
+
+app.use(compression())
 
 const staticFileMiddleware = express.static(path.join(__dirname + "/dist"));
 
