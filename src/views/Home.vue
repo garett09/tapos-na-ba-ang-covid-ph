@@ -16,7 +16,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3 mb-4">Kamusta na tayo? 🤔</h3>
+            <h3 class="heading-h3 mb-4">Kumusta na tayo? 🤔</h3>
           </div>
         </b-col>
       </b-row>
@@ -24,17 +24,13 @@
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold" style="color:#4169e1;">Confirmed</h4>
-            <span class="number-span mr-4" style="font-weight:700">Today: {{ todayCases.toLocaleString() }}</span>
-            <br>
-            <span class="number-span" style="font-weight:500">Total: {{ cases.toLocaleString() }}</span>
+            <span class="number-span" style="font-weight:500">Total: {{ cases.toLocaleString() }} <span class="number-span" style="color:#009000;"> (+{{todayCases.toLocaleString()}}) </span></span>
           </div>
         </b-col>
         <b-col cols="12" lg="6">
             <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold " style="color:#ff0038;">Deceased</h4>
-            <span class="number-span mr-4" style="font-weight:700">Today: {{ todayDeaths.toLocaleString() }}</span>
-            <br>
-            <span class="number-span" style="font-weight:500">Total: {{ deaths.toLocaleString() }}</span>
+            <span class="number-span" style="font-weight:500">Total: {{ deaths.toLocaleString() }} <span class="number-span" style="color: #009000;"> (+{{todayDeaths.toLocaleString()}}) </span></span>
           </div>
         </b-col>
       </b-row>
@@ -58,34 +54,30 @@
             <h3 class="heading-h31">Magandang balita!</h3>
             <b-row class="statistics-row">
               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
-                <StatisticsBlockSingle
-                  ClassProp="highlight-statistics-inner-div"
-                  Title="Recovered today 💪🏾"
-                  :Total="todayRecovered"
-                ></StatisticsBlockSingle>
+                <div class = "highlight-statistics-inner-div">
+                  <h4 class="heading-h4">Recovered</h4>
+            <span class="number-span">Total: {{ recovered.toLocaleString() }} +({{todayRecovered.toLocaleString()}})</span>
+                </div>
               </b-col>
               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
-                <StatisticsBlockSingle
-                  ClassProp="highlight-statistics-inner-div"
-                  Title="Recovered 💪🏿"
-                  :Total="recovered"
-                ></StatisticsBlockSingle>
+               <div class = "highlight-statistics-inner-div">
+                  <h4 class="heading-h4">Vaccines Administered</h4>
+            <span class="number-span">Total: {{ vaccineTotal.toLocaleString() }}</span>
+                </div>
               </b-col>
             </b-row>
              <b-row class="statistics-row">
-              <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
-              <StatisticsBlockSingle
-                ClassProp="highlight-statistics-inner-div"
-                Title="Vaccines administered 💉"
-                :Total="vaccineTotal"
-              ></StatisticsBlockSingle>
-              </b-col>
             <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
-              <StatisticsBlockSingle
-                ClassProp="highlight-statistics-inner-div"
-                Title="Cumulative Samples Tested 🔬"
-                :Total="castestses"
-              ></StatisticsBlockSingle>
+               <div class = "highlight-statistics-inner-div">
+                  <h4 class="heading-h4">Cumulative Samples Tested</h4>
+            <span class="number-span">Total: {{ castestses.toLocaleString() }}</span>
+                </div>
+            </b-col>
+            <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
+               <div class = "highlight-statistics-inner-div">
+                  <h4 class="heading-h4">Tests per 1 million people</h4>
+            <span class="number-span">Total: {{ tests1mil.toLocaleString() }}</span>
+                </div>
             </b-col>
              </b-row>
             <span class="number-span1"
@@ -145,6 +137,8 @@ export default {
     this.todayRecovered = this.$store.getters.todayRecovered;
     this.critical = this.$store.getters.critical;
     this.activeCases = this.$store.getters.activeCases;
+    this.tests1mil = this.$store.getters.tests1mil;
+    
     this.loaded = true;
   },
 
@@ -163,15 +157,16 @@ export default {
       casecasesPerOneMillions: 0,
       deathsPerOneMillion: 0,
       castestses: 0,
+      tests1mil: 0,
       vaccineTotal: 0,
       chartdata: {},
       options: {},
-      date: '',
-      time: '',
-      year: '',
-      timestamp: '',
-      fulldatetime: '',
-      datetime: ''
+      date: "",
+      time: "",
+      year: "",
+      timestamp: "",
+      fulldatetime: "",
+      datetime: "",
     };
   },
   methods: {
@@ -180,29 +175,29 @@ export default {
       await this.$store.dispatch("retrieveCovidChartData");
       await this.$store.dispatch("retrieveCovidVaccineData");
     },
-      printDate: function () {
-            return new Date().toLocaleDateString();
-          },
-          printTime: function () {
-            return new Date().toLocaleTimeString();
-          },
-          printYear: function () {
-            return new Date().getFullYear();
-          },          
-          printTimestamp: function () {
-            return Date.now();
-          },
-          printFullDate: function(){
-            return new Date();
-          }
-        },
-        mounted: function () {
-          this.date = this.printDate();
-          this.time = this.printTime();
-          this.timestamp = this.printTimestamp();
-          this.year = this.printYear();
-          this.fulldatetime = this.printFullDate();
-          this.datetime = this.printDate() + '  ' + this.printTime();
-        },
+    printDate: function () {
+      return new Date().toLocaleDateString();
+    },
+    printTime: function () {
+      return new Date().toLocaleTimeString();
+    },
+    printYear: function () {
+      return new Date().getFullYear();
+    },
+    printTimestamp: function () {
+      return Date.now();
+    },
+    printFullDate: function () {
+      return new Date();
+    },
+  },
+  mounted: function () {
+    this.date = this.printDate();
+    this.time = this.printTime();
+    this.timestamp = this.printTimestamp();
+    this.year = this.printYear();
+    this.fulldatetime = this.printFullDate();
+    this.datetime = this.printDate() + "  " + this.printTime();
+  },
 };
 </script>

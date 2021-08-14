@@ -20,6 +20,7 @@ export default new Vuex.Store({
     casesPerOneMillion: 0,
     deathsPerOneMillion: 0,
     tests: 0,
+    tests1mil: 0,
     chartDataCases: {},
     chartDeathsCases: {},
     chartRecoveredCases: {},
@@ -38,6 +39,7 @@ export default new Vuex.Store({
       state.recovered = covidData["recovered"]
       state.todayRecovered = covidData["todayRecovered"]
       state.critical = covidData["critical"]
+      state.tests1mil = covidData ["testsPerOneMillion"];
     },
     processCovidChartData(state, covidChartData) {
       state.chartDataCases = covidChartData["cases"];
@@ -132,6 +134,10 @@ export default new Vuex.Store({
     todayRecovered: state => {
       return state.todayRecovered;
     },
+    tests1mil: state => {
+      return state.tests1mil;
+    },
+    
 
     chartData: state => {
       const chartData = {
