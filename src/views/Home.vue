@@ -5,9 +5,11 @@
         <b-col>
           <div class="heading-div">
             <h1 class="heading-h1">Tapos na ba?</h1>
-            <h2 class="heading-h2">Hindi. <span>😷</span></h2>
+            <h2 class="heading-h2"><span style = "color:#cf352e">Hindi.</span></h2>
             &nbsp;
-            <h5 class="heading-h5">Updated: {{datetime}}</h5>
+            <h3 class="heading-h3">Lockdown counter: <span style= "color: #4d4dff">{{days.toLocaleString()}} </span>days</h3>
+            <h5 class="heading-h5">Huling update: {{datetime}}</h5>
+
           </div>
         </b-col>
       </b-row>
@@ -16,7 +18,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3 mb-4">Kumusta na tayo? 🤔</h3>
+            <h3 class="heading-h3 mb-4">Kumusta na tayo?</h3>
           </div>
         </b-col>
       </b-row>
@@ -48,6 +50,7 @@
           </div>
         </b-col>
       </b-row>
+   
       <b-row class="statistics-row">
         <b-col>
           <div class="highlight-statistics-div">
@@ -94,7 +97,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3">Ano ang progress? 📈</h3>
+            <h3 class="heading-h3">Ano ang progress?</h3>
           </div>
         </b-col>
       </b-row>
@@ -167,6 +170,7 @@ export default {
       timestamp: "",
       fulldatetime: "",
       datetime: "",
+      days: ""
     };
   },
   methods: {
@@ -190,6 +194,13 @@ export default {
     printFullDate: function () {
       return new Date();
     },
+    days_between: function(){
+      const date1 = new Date('3/12/2020');
+      const date2 = new Date();
+      const diffTime = Math.abs(date2 - date1);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return diffDays;
+    }
   },
   mounted: function () {
     this.date = this.printDate();
@@ -198,6 +209,7 @@ export default {
     this.year = this.printYear();
     this.fulldatetime = this.printFullDate();
     this.datetime = this.printDate() + "  " + this.printTime();
+    this.days = this.days_between();
   },
 };
 </script>
