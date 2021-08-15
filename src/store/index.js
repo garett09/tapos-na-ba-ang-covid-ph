@@ -20,7 +20,11 @@ export default new Vuex.Store({
     casesPerOneMillion: 0,
     deathsPerOneMillion: 0,
     tests: 0,
+    late: 0,
+    lateCritical: 0,
     tests1mil: 0,
+    lateTests: 0,
+    lateTests1m: 0,
     chartDataCases: {},
     chartDeathsCases: {},
     chartRecoveredCases: {},
@@ -41,6 +45,14 @@ export default new Vuex.Store({
       state.critical = covidData["critical"]
       state.tests1mil = covidData ["testsPerOneMillion"];
     },
+    processPastData(state, pastData) {
+      state.late = pastData["active"];
+      state.lateCritical = pastData["critical"];
+      state.lateTests1m = pastData["testsPerOneMillion"];
+      state.lateTests = pastData["tests"];
+      
+
+    },
     processCovidChartData(state, covidChartData) {
       state.chartDataCases = covidChartData["cases"];
       state.chartDeathsCases = covidChartData["deaths"];
@@ -58,6 +70,22 @@ export default new Vuex.Store({
           .then(response => {
             const covidData = response.data;
             context.commit("processCovidData", covidData);
+
+            resolve(response);
+          })
+          .catch(error => {
+            context.commit("apiError", error);
+            reject(error);
+          });
+      });
+    },
+    retrievePastData(context) {
+      return new Promise((resolve, reject) => {
+        Api()
+          .get("countries/ph?yesterday=true&strict=true")
+          .then(response => {
+            const pastData = response.data;
+            context.commit("processPastData", pastData);
 
             resolve(response);
           })
@@ -100,6 +128,7 @@ export default new Vuex.Store({
       });
     }
   },
+  
   getters: {
     cases: state => {
       return state.cases;
@@ -136,6 +165,18 @@ export default new Vuex.Store({
     },
     tests1mil: state => {
       return state.tests1mil;
+    },
+    late: state => {
+      return state.late;
+    },
+    lateCritical: state => {
+      return state.lateCritical;
+    },
+    lateTests: state => {
+      return state.lateTests;
+    },
+    lateTests1m: state => {
+      return state.lateTests1m;
     },
     
 

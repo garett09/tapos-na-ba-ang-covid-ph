@@ -40,13 +40,13 @@
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold" style="color:#1ca9c9">Active</h4>
-            <span class="number-span" style="font-weight:500">Total: {{ activeCases.toLocaleString() }}</span>
+            <span class="number-span" style="font-weight:500">Total: {{ activeCases.toLocaleString() }} <span class="number-span" style="color: #009000;"> (+{{computationActive.toLocaleString()}}) </span></span>
           </div>
         </b-col>
         <b-col cols="12" lg="6">
          <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold" style="color:#004225">Critical</h4>
-            <span class="number-span" style="font-weight:500">Total: {{ critical.toLocaleString() }}</span>
+            <span class="number-span" style="font-weight:500">Total: {{ critical.toLocaleString() }} <span class="number-span" style="color: #009000;"> (+{{computationCritical.toLocaleString()}}) </span></span>
           </div>
         </b-col>
       </b-row>
@@ -59,27 +59,28 @@
               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
                 <div class = "highlight-statistics-inner-div">
                   <h4 class="heading-h4">Recovered</h4>
-            <span class="number-span">Total: {{ recovered.toLocaleString() }} +({{todayRecovered.toLocaleString()}})</span>
+            <span class="number-span">Total: {{ recovered.toLocaleString() }} <span class="number-span" style="color: #3fff00;">(+{{todayRecovered.toLocaleString()}})</span></span>
                 </div>
               </b-col>
-              <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
+               <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
                <div class = "highlight-statistics-inner-div">
-                  <h4 class="heading-h4">Vaccines Administered</h4>
+                  <h4 class="heading-h4">Cumulative Samples Tested</h4>
+            <span class="number-span">Total: {{ castestses.toLocaleString() }} <span class="number-span" style="color: #3fff00;"> (+{{computationTests.toLocaleString()}}) </span></span>
+                </div>
+            </b-col>
+              
+            </b-row>
+             <b-row class="statistics-row">
+           <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
+               <div class = "highlight-statistics-inner-div">
+                  <h4 class="heading-h4">Vaccines Administered Locally</h4>
             <span class="number-span">Total: {{ vaccineTotal.toLocaleString() }}</span>
                 </div>
               </b-col>
-            </b-row>
-             <b-row class="statistics-row">
-            <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
-               <div class = "highlight-statistics-inner-div">
-                  <h4 class="heading-h4">Cumulative Samples Tested</h4>
-            <span class="number-span">Total: {{ castestses.toLocaleString() }}</span>
-                </div>
-            </b-col>
             <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
                <div class = "highlight-statistics-inner-div">
                   <h4 class="heading-h4">Tests per 1 million people</h4>
-            <span class="number-span">Total: {{ tests1mil.toLocaleString() }}</span>
+            <span class="number-span">Total: {{ tests1mil.toLocaleString()}} <span class="number-span" style="color: #3fff00;"> (+{{computationTests1m.toLocaleString()}}) </span> </span>
                 </div>
             </b-col>
              </b-row>
@@ -141,7 +142,14 @@ export default {
     this.critical = this.$store.getters.critical;
     this.activeCases = this.$store.getters.activeCases;
     this.tests1mil = this.$store.getters.tests1mil;
-    
+    this.late = this.$store.getters.late;
+    this.computationActive =this.activeCases - this.late
+    this.lateCritical = this.$store.getters.lateCritical;
+    this.computationCritical = this.critical - this.lateCritical;
+    this.lateTests = this.$store.getters.lateTests;
+    this.lateTests1m = this.$store.getters.lateTests1m;
+    this.computationTests = this.castestses - this.lateTests;
+    this.computationTests1m = this.tests1mil - this.lateTests1m;
     this.loaded = true;
   },
 
@@ -170,7 +178,15 @@ export default {
       timestamp: "",
       fulldatetime: "",
       datetime: "",
-      days: ""
+      days: "",
+      late: 0,
+      computationActive: 0,
+      lateCritical: 0,
+      computationCritical: 0,
+      lateTests: 0,
+      lateTests1m: 0,
+      computationTests: 0,
+      computationTests1m: 0,
     };
   },
   methods: {
@@ -178,6 +194,7 @@ export default {
       await this.$store.dispatch("retrieveCovidData");
       await this.$store.dispatch("retrieveCovidChartData");
       await this.$store.dispatch("retrieveCovidVaccineData");
+      await this.$store.dispatch("retrievePastData");
     },
     printDate: function () {
       return new Date().toLocaleDateString();
