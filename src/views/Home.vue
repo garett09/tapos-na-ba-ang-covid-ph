@@ -85,7 +85,7 @@
              </b-row>
             <span class="number-span1"
               >Palaging magpa-test kung mayroon kang mga sintomas! Para sa karagdagang impormasyon, bisitahin ang website ng:
-              <b-link href="https://doh.gov.ph/" target="_blank"
+              <b-link href="https://doh.gov.ph/2019-ncov" target="_blank"
                 >DOH</b-link
               ></span
             >
