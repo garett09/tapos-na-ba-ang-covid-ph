@@ -199,7 +199,7 @@ export default {
       const date2 = new Date();
       const diffTime = Math.abs(date2 - date1);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      return diffDays;
+      return diffDays.toLocaleString();
     }
   },
   mounted: function () {
