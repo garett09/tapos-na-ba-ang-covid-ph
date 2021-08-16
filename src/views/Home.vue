@@ -73,7 +73,7 @@
              <b-row class="statistics-row">
            <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
                <div class = "highlight-statistics-inner-div">
-                  <h4 class="heading-h4">Vaccines Administered Locally</h4>
+                  <h4 class="heading-h4">Vaccines Administered</h4>
             <span class="number-span">Total: {{ vaccineTotal.toLocaleString() }}</span>
                 </div>
               </b-col>
