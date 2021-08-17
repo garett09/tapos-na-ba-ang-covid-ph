@@ -98,7 +98,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3">Ano ang progress?</h3>
+            <h3 class="heading-h3">Ano ang progress ng pagbakuna?</h3>
           </div>
         </b-col>
       </b-row>
