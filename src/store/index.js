@@ -183,22 +183,7 @@ export default new Vuex.Store({
     chartData: state => {
       const chartData = {
         labels: Object.keys(state.chartDataCases),
-        datasets: [
-          {
-            label: 'Cases',
-            backgroundColor: '#f3f7ff',
-            data: Object.values(state.chartDataCases)
-          },
-          {
-            label: 'Deaths',
-            backgroundColor: '#f87979',
-            data: Object.values(state.chartDeathsCases)
-          },
-          {
-            label: 'Recoveries',
-            backgroundColor: '#5d65ff',
-            data: Object.values(state.chartRecoveredCases)
-          },
+        datasets: [ 
           {
             label: "Vaccines administered",
             backgroundColor: "#eebb17",
