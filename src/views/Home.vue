@@ -40,13 +40,13 @@
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold" style="color:#1ca9c9">Active</h4>
-            <span class="number-span" style="font-weight:500">Total: {{ activeCases.toLocaleString() }} <span class="number-span" style="color: #009000;"> (+{{computationActive.toLocaleString()}}) </span></span>
+            <span class="number-span" style="font-weight:500">Total: {{ activeCases.toLocaleString() }}</span>
           </div>
         </b-col>
         <b-col cols="12" lg="6">
          <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold" style="color:#004225">Critical</h4>
-            <span class="number-span" style="font-weight:500">Total: {{ critical.toLocaleString() }} <span class="number-span" style="color: #009000;"> (+{{computationCritical.toLocaleString()}}) </span></span>
+            <span class="number-span" style="font-weight:500">Total: {{ critical.toLocaleString() }} </span>
           </div>
         </b-col>
       </b-row>
@@ -218,6 +218,8 @@ export default {
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       return diffDays.toLocaleString();
     }
+
+
   },
   mounted: function () {
     this.date = this.printDate();
