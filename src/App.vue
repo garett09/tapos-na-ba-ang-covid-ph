@@ -161,7 +161,7 @@ body {
 }
 @media screen and (max-width: 576px) {
   .footer .text {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }
 
