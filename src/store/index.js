@@ -25,6 +25,7 @@ export default new Vuex.Store({
     tests1mil: 0,
     lateTests: 0,
     lateTests1m: 0,
+    totalVaccines: {},
     chartDataCases: {},
     chartDeathsCases: {},
     chartRecoveredCases: {},
@@ -44,6 +45,7 @@ export default new Vuex.Store({
       state.todayRecovered = covidData["todayRecovered"]
       state.critical = covidData["critical"]
       state.tests1mil = covidData ["testsPerOneMillion"];
+      state.totalVaccines = covidData["population"];
     },
     processPastData(state, pastData) {
       state.late = pastData["active"];
@@ -177,6 +179,9 @@ export default new Vuex.Store({
     },
     lateTests1m: state => {
       return state.lateTests1m;
+    },
+    totalVaccines: state => {
+      return state.totalVaccines;
     },
     
 
