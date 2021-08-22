@@ -121,6 +121,36 @@ body {
 
 .heading-h5 {
   font-style:italic;
+  text-align: justify;
+
+}
+@media (min-width: 576px) {
+  .heading-h5 {
+    text-align: justify;
+  }
+}
+
+.heading-h7 {
+  font-style:italic;
+
+}
+.container{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* footer */
+.footer{
+    text-align: center;
+    background: var(--black);
+    color: var(--white-smoke);
+    padding: 2rem 0;
+    height: 15vh;
+}
+.footer .text{
+    opacity: 0.8;
+    font-size:1.5rem;
 }
 
 .number-span {

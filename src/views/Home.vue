@@ -14,7 +14,7 @@
               <span style="color: #4d4dff">{{ days.toLocaleString() }} </span
               >days
             </h3>
-            <h5 class="heading-h5">Huling update: {{ datetime }}</h5>
+            <h5 class="heading-h7">Huling update: {{ datetime }}</h5>
           </div>
         </b-col>
       </b-row>
@@ -88,16 +88,16 @@
           <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold">Positivity rate</h4>
             <span class="number-span" style="font-weight: 500">
-              <span style="color: #daa520">{{ positivityRate }}% </span>ang
+              <span style="color: #ff0038">{{ positivityRate }}% </span>ang
               positivity rate ngayong araw.</span
             >
-            <hr>
+            <hr />
             <h5 class="heading-h5" style="font-weight: 400">
-              Sa kada total test conducted ngayong araw, yung value ng % ay ito
-              ang naging kumpirmadong kaso sa araw na ito. <br>
-              <br>
-              <span style="font-weight:bold">Note: </span> Maaring maging
-              mali ang data nito dahil late ang binibigay na data ng API.
+              Ang positivity rate ay ang pangunahing sukatan na ginagamit upang masuri
+              ang pagkalat ng COVID sa lugar. <br> Ang 5% o higit ay inuturing na "sobrang taas".<br />
+              <br />
+              <span style="font-weight: bold">Note: </span> Maaring maging mali
+              ang data nito dahil late ang binibigay na data ng API.
             </h5>
           </div>
         </b-col>
@@ -111,11 +111,11 @@
                 {{ totalDose.toLocaleString() }}% </span
               >ng 70M ang nababakunahan.</span
             >
-            <hr>
-            <h5 style="font-weight: 400">
-              Kasama na rito yung mga nag-second dose vaccine na at nabigyan ng
-              first dose. Para maabot ang herd immunity kailangan na 140M dose
-              ang mabigay ng DOH sa population.
+            <hr />
+            <h5 class="heading-h5" style="font-weight: 400">
+              Kasama na rito yung mga nag-second dose vaccine na at nakakuha pa lamang ng
+              first dose. Para maabot ang herd immunity, kailangan na 140M doses
+              ang mabigay ng DOH sa populasyon.
             </h5>
           </div>
         </b-col>
@@ -201,6 +201,15 @@
         </b-col>
       </b-row>
     </section>
+      <!-- footer -->
+    <footer class="footer center">
+      <div class="container">
+        <p class="text">
+          Copyright &copy;Adrian Garett C. Sian | All Rights Reserved
+        </p>
+      </div>
+    </footer>
+    <!-- end of footer -->
   </b-container>
 </template>
 
