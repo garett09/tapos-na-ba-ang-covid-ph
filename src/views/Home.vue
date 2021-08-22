@@ -91,10 +91,12 @@
               <span style="color: #daa520">{{ positivityRate }}% </span>ang
               positivity rate ngayong araw.</span
             >
-            <br />
-            <h5 style="font-weight: 400">
+            <hr>
+            <h5 class="heading-h5" style="font-weight: 400">
               Sa kada total test conducted ngayong araw, yung value ng % ay ito
-              ang naging kumpirmadong kaso sa araw na ito. Note: Maaring maging
+              ang naging kumpirmadong kaso sa araw na ito. <br>
+              <br>
+              <span style="font-weight:bold">Note: </span> Maaring maging
               mali ang data nito dahil late ang binibigay na data ng API.
             </h5>
           </div>
@@ -109,6 +111,7 @@
                 {{ totalDose.toLocaleString() }}% </span
               >ng 70M ang nababakunahan.</span
             >
+            <hr>
             <h5 style="font-weight: 400">
               Kasama na rito yung mga nag-second dose vaccine na at nabigyan ng
               first dose. Para maabot ang herd immunity kailangan na 140M dose
