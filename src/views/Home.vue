@@ -54,7 +54,7 @@
         <b-col cols="12" lg="12">
           <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold">Positivity rate</h4>
-            <span class="number-span" style="font-weight:500"> <span style="color:#DAA520;">{{ positivityRate.toLocaleString()}}% </span> <span style="font-weight:400">ang positivity rate ngayong araw.</span></span>
+            <span class="number-span" style="font-weight:500"> <span style="color:#DAA520;">{{ positivityRate}}% </span> <span style="font-weight:400">ang positivity rate ngayong araw.</span></span>
             <h5 style="font-weight:400">Sa kada total test conducted ngayong araw, yung value ng %  ay ito ang naging kumpirmadong kaso sa araw na ito. <br>
               Note: Maaring maging mali ang data nito dahil late ang 
               binibigay na data ng API.
@@ -66,7 +66,7 @@
         <b-col cols="12" lg="12">
           <div class="statistics-div">
             <h4 class="heading-h4 font-weight-bold">Herd Immunity</h4>
-            <span class="number-span" style="font-weight:500"> <span style="color:green"> {{ totalDose.toLocaleString()}}% </span>  <span style="font-weight:400">ng 70M ang nababakunahan.</span></span>
+            <span class="number-span" style="font-weight:500"> <span style="color:green"> {{ totalDose.toLocaleString()}}% </span>  <span style="font-weight:400">ng 70M ang nababakunahan.</span></span>&nbsp;
             <h5 style="font-weight:400">Kasama na rito yung mga nag-second dose vaccine na at nabigyan ng first dose. Para maabot ang herd immunity kailangan na 140M dose ang mabigay ng DOH sa
               population.  </h5>
           </div>
@@ -172,7 +172,7 @@ export default {
     this.lateTests1m = this.$store.getters.lateTests1m;
     this.computationTests = this.castestses - this.lateTests;
     this.computationTests1m = this.tests1mil - this.lateTests1m;
-    this.positivityRate = Math.ceil((this.todayCases / this.lateTests) * 100);
+    this.positivityRate = Math.ceil((this.todayCases / this.computationTests) * 100);
     this.doses = this.$store.getters.totalVaccines;
     this.minus = this.doses + 28762840;
     this.totalDose = Math.abs((this.vaccineTotal / this.minus) * 100);
