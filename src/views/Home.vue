@@ -94,7 +94,7 @@
             <hr />
             <h5 class="heading-h5" style="font-weight: 400">
               Ang positivity rate ay ang pangunahing sukatan na ginagamit upang masuri
-              ang pagkalat ng COVID sa lugar. <br> <span style="font-weight:500"> Ang 10% o higit ay inuturing na "sobrang taas". Mas maging maingat na kapag narating ito. </span><br>
+              ang pagkalat ng COVID sa lugar. <br> <span style="font-weight:500"> Ang 10% o higit ay inuturing na "sobrang taas". Mas maging maingat kapag narating ito. </span><br>
               <br>
               <span style="font-weight: bold">Note: </span> Maaring maging mali
               ang data nito dahil late ang binibigay na data ng API.
