@@ -90,9 +90,16 @@ body {
   
 }
 
+@media screen and (max-width: 575px){
+  .heading-h3{
+        text-align: center;
+  }
+}
+
 @media (min-width: 576px) {
   .heading-h3 {
     font-size: 3rem;
+
   }
 }
 
@@ -151,6 +158,11 @@ body {
 .footer .text{
     opacity: 0.8;
     font-size:1.5rem;
+}
+@media screen and (max-width: 576px) {
+  .footer .text {
+    font-size: 0.8rem;
+  }
 }
 
 .number-span {
