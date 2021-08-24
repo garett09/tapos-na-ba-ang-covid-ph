@@ -1,6 +1,4 @@
-# Tapos na ba ang COVID-19 sa Pilipinas?
-
-[![CodeFactor](https://www.codefactor.io/repository/github/garett09/tapos-na-ba-ang-covid-ph/badge)](https://www.codefactor.io/repository/github/garett09/tapos-na-ba-ang-covid-ph)
+# Tapos na ba ang COVID-19 sa Pilipinas? [![CodeFactor](https://www.codefactor.io/repository/github/garett09/tapos-na-ba-ang-covid-ph/badge)](https://www.codefactor.io/repository/github/garett09/tapos-na-ba-ang-covid-ph)
 
 A web app which keeps track of the current COVID-19 situation in The Philppines and gives a a very clear answer to the question:
 
