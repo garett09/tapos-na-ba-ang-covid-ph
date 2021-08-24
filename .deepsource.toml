@@ -1,13 +1,6 @@
 version = 1
 
 [[analyzers]]
-name = "python"
-enabled = true
-
-  [analyzers.meta]
-  runtime_version = "3.x.x"
-
-[[analyzers]]
 name = "test-coverage"
 enabled = true
 
@@ -18,44 +11,9 @@ enabled = true
   [analyzers.meta]
   plugins = [
     "react",
-    "vue",
-    "ember",
-    "angular",
-    "angularjs",
-    "meteor"
+    "vue"
   ]
-
-[[analyzers]]
-name = "sql"
-enabled = true
-
-[[analyzers]]
-name = "shell"
-enabled = true
-
-[[analyzers]]
-name = "java"
-enabled = true
-
-  [analyzers.meta]
-  runtime_version = "11"
-
-[[analyzers]]
-name = "php"
-enabled = true
-
-[[transformers]]
-name = "isort"
-enabled = true
 
 [[transformers]]
 name = "prettier"
-enabled = true
-
-[[transformers]]
-name = "google-java-format"
-enabled = true
-
-[[transformers]]
-name = "php-cs-fixer"
 enabled = true
