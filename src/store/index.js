@@ -2,12 +2,9 @@ import Vue from "vue";
 import Vuex from "vuex";
 import Api from "@/api";
 
-
 Vue.use(Vuex);
 
-
 export default new Vuex.Store({
-  
   state: {
     cases: 0,
     todayCases: 0,
@@ -29,7 +26,7 @@ export default new Vuex.Store({
     chartDataCases: {},
     chartDeathsCases: {},
     chartRecoveredCases: {},
-    covidVaccineData: {}
+    covidVaccineData: {},
   },
   mutations: {
     processCovidData(state, covidData) {
@@ -40,11 +37,11 @@ export default new Vuex.Store({
       state.casesPerOneMillion = covidData["casesPerOneMillion"];
       state.deathsPerOneMillion = covidData["deathsPerOneMillion"];
       state.tests = covidData["tests"];
-      state.activeCases = covidData["active"]
-      state.recovered = covidData["recovered"]
-      state.todayRecovered = covidData["todayRecovered"]
-      state.critical = covidData["critical"]
-      state.tests1mil = covidData ["testsPerOneMillion"];
+      state.activeCases = covidData["active"];
+      state.recovered = covidData["recovered"];
+      state.todayRecovered = covidData["todayRecovered"];
+      state.critical = covidData["critical"];
+      state.tests1mil = covidData["testsPerOneMillion"];
       state.totalVaccines = covidData["population"];
     },
     processPastData(state, pastData) {
@@ -52,8 +49,6 @@ export default new Vuex.Store({
       state.lateCritical = pastData["critical"];
       state.lateTests1m = pastData["testsPerOneMillion"];
       state.lateTests = pastData["tests"];
-      
-
     },
     processCovidChartData(state, covidChartData) {
       state.chartDataCases = covidChartData["cases"];
@@ -62,20 +57,20 @@ export default new Vuex.Store({
     },
     processCovidVacinneData(state, covidVaccineData) {
       state.covidVaccineData = covidVaccineData;
-    }
+    },
   },
   actions: {
     retrieveCovidData(context) {
       return new Promise((resolve, reject) => {
         Api()
           .get("countries/ph?strict=true")
-          .then(response => {
+          .then((response) => {
             const covidData = response.data;
             context.commit("processCovidData", covidData);
 
             resolve(response);
           })
-          .catch(error => {
+          .catch((error) => {
             context.commit("apiError", error);
             reject(error);
           });
@@ -85,13 +80,13 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         Api()
           .get("countries/ph?yesterday=true&strict=true")
-          .then(response => {
+          .then((response) => {
             const pastData = response.data;
             context.commit("processPastData", pastData);
 
             resolve(response);
           })
-          .catch(error => {
+          .catch((error) => {
             context.commit("apiError", error);
             reject(error);
           });
@@ -101,13 +96,13 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         Api()
           .get("/historical/PH?lastdays=30")
-          .then(response => {
+          .then((response) => {
             const covidChartData = response.data["timeline"];
             context.commit("processCovidChartData", covidChartData);
 
             resolve(response);
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             reject(error);
           });
@@ -117,89 +112,88 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         Api()
           .get("/vaccine/coverage/countries/ph?lastdays=30")
-          .then(response => {
+          .then((response) => {
             const covidVaccineData = response.data["timeline"];
             context.commit("processCovidVacinneData", covidVaccineData);
 
             resolve(response);
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             reject(error);
           });
       });
-    }
+    },
   },
-  
+
   getters: {
-    cases: state => {
+    cases: (state) => {
       return state.cases;
     },
-    todayCases: state => {
+    todayCases: (state) => {
       return state.todayCases;
     },
-    deaths: state => {
+    deaths: (state) => {
       return state.deaths;
     },
-    todayDeaths: state => {
+    todayDeaths: (state) => {
       return state.todayDeaths;
     },
-    casesPerOneMillion: state => {
+    casesPerOneMillion: (state) => {
       return state.casesPerOneMillion;
     },
-    deathsPerOneMillion: state => {
+    deathsPerOneMillion: (state) => {
       return state.deathsPerOneMillion;
     },
-    tests: state => {
+    tests: (state) => {
       return state.tests;
     },
-    activeCases: state => {
+    activeCases: (state) => {
       return state.activeCases;
     },
-    recovered: state => {
+    recovered: (state) => {
       return state.recovered;
     },
-    critical: state => {
+    critical: (state) => {
       return state.critical;
     },
-    todayRecovered: state => {
+    todayRecovered: (state) => {
       return state.todayRecovered;
     },
-    tests1mil: state => {
+    tests1mil: (state) => {
       return state.tests1mil;
     },
-    late: state => {
+    late: (state) => {
       return state.late;
     },
-    lateCritical: state => {
+    lateCritical: (state) => {
       return state.lateCritical;
     },
-    lateTests: state => {
+    lateTests: (state) => {
       return state.lateTests;
     },
-    lateTests1m: state => {
+    lateTests1m: (state) => {
       return state.lateTests1m;
     },
-    totalVaccines: state => {
+    totalVaccines: (state) => {
       return state.totalVaccines;
     },
-    
 
-    chartData: state => {
+    chartData: (state) => {
       const chartData = {
         labels: Object.keys(state.chartDataCases),
-        datasets: [ 
+        datasets: [
           {
             label: "Vaccines administered",
             backgroundColor: "#eebb17",
-            data: Object.values(state.covidVaccineData)
-          }
-        ]
-      }
+            data: Object.values(state.covidVaccineData),
+          },
+        ],
+      };
       return chartData;
     },
-    covidVaccineDataTotal: state => {
+    covidVaccineDataTotal: (state) => {
       return Object.values(state.covidVaccineData).pop();
-    }
-  }
+    },
+  },
 });
