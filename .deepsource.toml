@@ -8,25 +8,12 @@ enabled = true
 name = "javascript"
 enabled = true
 
-[[analyzers]]
-name = "sql"
-enabled = true
-
-[[analyzers]]
-name = "java"
-enabled = true
-
   [analyzers.meta]
-  runtime_version = "11"
+  plugins = [
+    "react",
+    "vue"
+  ]
 
 [[transformers]]
 name = "prettier"
-enabled = true
-
-[[transformers]]
-name = "google-java-format"
-enabled = true
-
-[[transformers]]
-name = "yapf"
 enabled = true
