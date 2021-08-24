@@ -16,7 +16,6 @@
             </h3>
             <h5 class="heading-h7">Huling update: {{ datetime }}</h5>
             <h6>Paalala: Ang mga numero ay nagre-reset pagdating ng 8am.</h6>
-
           </div>
         </b-col>
       </b-row>
@@ -95,11 +94,15 @@
             >
             <hr />
             <h5 class="heading-h5" style="font-weight: 400">
-              Ang positivity rate ay ang pangunahing sukatan na ginagamit upang masuri
-              ang pagkalat ng COVID sa lugar. <br> <span style="font-weight:500"> Ang 10% o higit ay inuturing na "sobrang taas". Mas maging maingat kapag narating ito. </span><br>
-              <br>
-              <span style="font-weight: bold">Paalala: </span> Maaring maging mali
-              ang data dahil nakadepende ito sa API.
+              Ang positivity rate ay ang pangunahing sukatan na ginagamit upang
+              masuri ang pagkalat ng COVID sa lugar. <br />
+              <span style="font-weight: 500">
+                Ang 10% o higit ay inuturing na "sobrang taas". Mas maging
+                maingat kapag narating ito. </span
+              ><br />
+              <br />
+              <span style="font-weight: bold">Paalala: </span> Maaring maging
+              mali ang data dahil nakadepende ito sa API.
             </h5>
           </div>
         </b-col>
@@ -115,9 +118,9 @@
             >
             <hr />
             <h5 class="heading-h5" style="font-weight: 400">
-              Kasama na rito yung mga nag-second dose vaccine na at nakakuha pa lamang ng
-              first dose. Para maabot ang herd immunity, kailangan na 140M doses
-              ang mabigay ng DOH sa populasyon.
+              Kasama na rito yung mga nag-second dose vaccine na at nakakuha pa
+              lamang ng first dose. Para maabot ang herd immunity, kailangan na
+              140M doses ang mabigay ng DOH sa populasyon.
             </h5>
           </div>
         </b-col>
@@ -203,7 +206,7 @@
         </b-col>
       </b-row>
     </section>
-      <!-- footer -->
+    <!-- footer -->
     <footer class="footer center">
       <div class="container">
         <p class="text">
