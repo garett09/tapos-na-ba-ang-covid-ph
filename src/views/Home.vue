@@ -6,7 +6,7 @@
           <div class="heading-div">
             <h1 class="heading-h1">Tapos na ba?</h1>
             <h2 class="heading-h2">
-              <span style="color: #cf352e">Hindi.</span>
+              <span style="color: #50C878">Oo.</span>
             </h2>
             &nbsp;
             <h3 class="heading-h3">
